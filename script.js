@@ -1,20 +1,17 @@
+// --- Lógica do Filtro e do Modal ---
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Lógica do Filtro de Portfólio ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove a classe 'active' de todos os botões
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Adiciona a classe 'active' ao botão clicado
             button.classList.add('active');
-
             const filter = button.getAttribute('data-filter');
 
             projectCards.forEach(card => {
                 const category = card.getAttribute('data-category');
-                
-                // Mostra o card se o filtro for 'todos' ou se a categoria corresponder
                 if (filter === 'todos' || filter === category) {
                     card.style.display = 'block';
                 } else {
@@ -23,4 +20,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // --- Lógica do Modal de Imagem (Lightbox) ---
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-image");
+    const closeBtn = document.querySelector(".close-button");
+    const projectImages = document.querySelectorAll('.project-images img');
+
+    projectImages.forEach(img => {
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            img.style.cursor = 'pointer'; // Adiciona um cursor para indicar que é clicável
+        }
+    });
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    closeBtn.onclick = closeModal;
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
 });
