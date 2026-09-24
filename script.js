@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             projectCards.forEach(card => {
                 const category = card.getAttribute('data-category');
-                if (filter === 'todos' || filter === category) {
+                if (filter === 'todos' || category.split(/\s+/).includes(filter)) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';

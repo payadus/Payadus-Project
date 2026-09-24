@@ -209,3 +209,28 @@ footer {
     color: #bbb;
     text-decoration: none;
 }
+
+.payadus-feature {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(250px, 0.8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: clamp(20px, 4vw, 48px);
+    padding: clamp(22px, 4vw, 38px);
+    background: linear-gradient(130deg, #111b31, #1b1740 65%, #12354a);
+    border-color: #605193;
+}
+
+.payadus-feature h3 { font-size: clamp(1.75rem, 3vw, 2.6rem); color: #ffe4a4; }
+.payadus-feature p { font-size: 1rem; }
+.payadus-eyebrow { color: #8fdcff; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; }
+.payadus-feature-logo { width: 98px; height: 98px; object-fit: contain; display: block; margin: 15px 0; }
+.payadus-feature-screen { width: 100%; border: 1px solid #6276a9; border-radius: 12px; box-shadow: 0 20px 50px #0008; }
+.payadus-feature-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; padding: 12px 18px; border-radius: 8px; background: #f0b65f; color: #101b2d; font-weight: 800; }
+.payadus-feature-link:hover { background: #ffdc96; text-decoration: none; }
+
+@media (max-width: 740px) {
+    header .container { flex-wrap: wrap; gap: 10px; }
+    header nav ul { flex-wrap: wrap; gap: 10px 16px; }
+    .payadus-feature { grid-template-columns: 1fr; }
+}
